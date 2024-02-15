@@ -1,0 +1,25 @@
+
+.drawer-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* indigo color */
+.drawer-logo-icon {
+    margin-right: 10px;
+    filter: invert(26%) sepia(73%) saturate(1469%) hue-rotate(212deg) brightness(94%) contrast(86%);
+}
+
+
+.drawer-logo {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.drawer-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    margin-left: 2px;
+}

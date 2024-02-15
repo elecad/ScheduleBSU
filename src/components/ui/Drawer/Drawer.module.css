@@ -1,0 +1,15 @@
+.drawer {
+    background-color: var(--drawer-background-color);
+    position: absolute;
+    height: 100vh;
+    width: var(--drawer-width);
+    transition: 0.2s transform ease-in-out;
+    overflow-y: auto;
+    box-shadow: var(--box-shadow-drawer-mobilebar);
+}
+
+@media (max-width: 960px) {
+    .drawer {
+        transform: translateX(-110%);
+    }
+}

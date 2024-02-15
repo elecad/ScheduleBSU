@@ -1,3 +1,6 @@
 .app.dark {
-    --background-color: black
+    --background-color: #121212;
+    --drawer-background-color: #363636;
+    --primary-text-color: white;
+
 }

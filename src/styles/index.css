@@ -1,6 +1,8 @@
 @import "reset.css";
 @import "@/styles/themes/light.css";
 @import "@/styles/themes/dark.css";
+@import "@/styles/variables/globals.css";
+@import 'material-icons/iconfont/material-icons.css';
 
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -12,5 +14,6 @@
 
 .app {
     background: var(--background-color);
+    color: var(--primary-text-color);
     min-height: 100vh;
 }
