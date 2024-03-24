@@ -10,6 +10,9 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: var(--background-color);
+    color: var(--primary-text-color);
+
 }
 
 .app {
@@ -23,5 +26,7 @@
     font-size: 1.25rem;
     font-weight: 500;
     margin-bottom: 15px;
-
 }
+
+
+/*Временно*/

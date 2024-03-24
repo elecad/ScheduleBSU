@@ -3,7 +3,7 @@
     top: 0;
     height: var(--height-mobilebar);
     transform: translateY(-110%);
-    transition: 0.2s transform ease-in-out;
+    transition: 0.2s transform;
     width: 100%;
     background-color: var(--drawer-background-color);
     box-shadow: var(--box-shadow-drawer-mobilebar);
