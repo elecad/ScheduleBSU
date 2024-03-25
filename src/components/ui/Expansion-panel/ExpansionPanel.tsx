@@ -1,11 +1,11 @@
 import styles from "./ExpansionPanel.module.css"
 import ClassHelper from 'classnames/bind';
-import {MouseEventHandler, ReactNode} from "react";
+import {HTMLAttributes, MouseEventHandler, ReactNode} from "react";
 
-interface ExpansionPanelProps {
+interface ExpansionPanelProps extends HTMLAttributes<HTMLDivElement> {
     children?: ReactNode;
-    title: ReactNode;
-    content: ReactNode;
+    headerPanel?: ReactNode;
+    contentPanel?: ReactNode;
     open?: boolean;
     onOpen: MouseEventHandler;
 }
@@ -13,16 +13,15 @@ interface ExpansionPanelProps {
 const classNames = ClassHelper.bind(styles);
 
 
-const ExpansionPanel = ({content, title, open, onOpen}: ExpansionPanelProps) => {
-
+const ExpansionPanel = ({contentPanel, headerPanel, open, onOpen, ...props}: ExpansionPanelProps) => {
 
     return (
-        <div className={classNames('expansion-panel')}>
-            <div className={classNames('expansion-title', {'open': open})} onClick={onOpen}>{title}</div>
+        <div className={classNames('expansion-panel')} {...props}>
+            <div className={classNames('expansion-title', {'open': open})} onClick={onOpen}>{headerPanel}</div>
             <div className={classNames('expansion-content', {'open': open})}>
                 <div className={classNames('expansion-panel-content-wrapper')}>
                     <div>
-                        {content}
+                        {contentPanel}
                     </div>
                 </div>
             </div>
