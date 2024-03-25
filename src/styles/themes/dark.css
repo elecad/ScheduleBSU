@@ -2,5 +2,9 @@
     --background-color: #121212;
     --drawer-background-color: #363636;
     --primary-text-color: white;
-    --card-background-color: #1e1e1e
+    --card-background-color: #1e1e1e;
+    --expansion-panel-background-color: #1e1e1e;
+    --expansion-panel-background-color-open: #545454;
+    --expansion-panel-font-color-open: white;
+    --expansion-panel-background-color-hover: #303030;
 }
