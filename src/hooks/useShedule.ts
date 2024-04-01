@@ -59,7 +59,7 @@ export interface ICharacteristic {
 }
 
 export interface IDescription {
-    type: string
+    type: 'teacher' | 'group' | 'location'
     text: string
 }
 
@@ -155,6 +155,7 @@ export function useSchedule() {
         if (result[6] && !result[0].lesson.length) {
             result.pop()
         }
+        console.log("Transform: ", result)
         setLesson(result);
 
     }

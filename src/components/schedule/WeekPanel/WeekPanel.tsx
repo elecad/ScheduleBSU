@@ -1,4 +1,4 @@
-import styles from "./WeekPalen.module.css"
+import styles from "./WeekPanel.module.css"
 import ClassHelper from 'classnames/bind';
 import {HTMLAttributes, ReactNode} from "react";
 import {IDay} from "@/hooks/useShedule.ts";
@@ -17,6 +17,7 @@ const WeekPanel = ({children, days}: WeekPanelProps) => {
         <div className={classNames("week-panel-wrapper")}>
             <div className={classNames("week-panel")}>
                 {days.map((el) =>
+
                     <div className={classNames("signboard", "outer")}>
                         <div className={classNames("signboard", "front", "inner", "anim")}>
                             <div className={classNames("top-main", "anim")}>

@@ -30,7 +30,6 @@
 
 .outer {
     position: relative;
-    top: 50%;
     z-index: 1;
     cursor: pointer;
 }
@@ -60,7 +59,7 @@
     position: absolute;
     left: 0;
     z-index: 1;
-    transform: rotate(5deg) translate(-4px, 4px);
+    transform: rotate(5deg) translate(-5px, 3px);
     background: #3498DB;
 }
 
@@ -76,7 +75,7 @@
 
 
 .outer:hover .left {
-    transform: translateX(-60px) scale(0.9);
+    transform: translateX(-55px) scale(0.9);
 
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
 }

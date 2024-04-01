@@ -1,0 +1,41 @@
+.lesson-content {
+    padding: 15px;
+}
+
+.lesson-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.descriptions {
+    font-size: 0.9rem;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.description {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.description-icon {
+    margin-right: 5px;
+}
+
+.to-schedules {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}

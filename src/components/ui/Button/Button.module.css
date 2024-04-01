@@ -1,7 +1,7 @@
 .btn {
     color: #ffffff;
-    background: #06b6d4;
-    border: 1px solid #06b6d4;
+    background: #3f51b5;
+    border: 1px solid #3f51b5;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
@@ -21,9 +21,9 @@
 
 .btn:hover {
     cursor: pointer;
-    background: #0891b2;
+    background: #2b2c7e;
     color: #ffffff;
-    border-color: #0891b2;
+    border-color: #2b2c7e;
 }
 
 .btn:disabled {
