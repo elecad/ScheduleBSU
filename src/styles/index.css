@@ -112,7 +112,6 @@ li {
 }
 
 .anim04c {
-    -webkit-transition: all .4s cubic-bezier(.5, .35, .15, 1.4);
     transition: all .4s cubic-bezier(.5, .35, .15, 1.4);
 }
 
@@ -168,52 +167,52 @@ li {
 
 /*-----*/
 
-.outer:active .inner {
+.outer:hover .inner {
     transform: rotate(0) translate(0) scale(0.9);
 }
 
-.outer:active .front .date {
-    -webkit-transform: scale(2);
+.outer:hover .front .date {
+    transform: scale(2);
 }
 
-.outer:active .front .day,
-.outer:active .front .month {
+.outer:hover .front .day,
+.outer:hover .front .month {
     visibility: hidden;
     opacity: 0;
     transform: scale(0);
 }
 
-.outer:active .right {
+.outer:hover .right {
     transform: rotate(-5deg) translateX(80px) scale(0.9);
 }
 
-.outer:active .left {
+.outer:hover .left {
     transform: rotate(5deg) translateX(-80px) scale(0.9);
 }
 
 /*-----*/
 
-.outer:active .calendarMain {
+.outer:hover .calendarMain {
     opacity: 0;
     visibility: hidden;
 }
 
-.outer:active .clock {
+.outer:hover .clock {
     opacity: 1;
     visibility: visible;
 }
 
-.outer:active .calendarNormal {
+.outer:hover .calendarNormal {
     bottom: -30px;
     opacity: 1;
     visibility: visible;
 }
 
-.outer:active .year {
+.outer:hover .year {
     top: -30px;
     opacity: 1;
     visibility: visible;
-    letter-spacing: 3px;
+    /*letter-spacing: 3px;*/
 }
 
 /*-----*/
@@ -266,7 +265,7 @@ li {
     top: 0;
     font-size: 14px;
     line-height: 30px;
-    font-weight: 300;
+    /*font-weight: 300;*/
     text-transform: uppercase;
     letter-spacing: 0;
     text-align: center;
