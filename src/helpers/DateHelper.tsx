@@ -29,5 +29,6 @@ export function getMonthName(date: Date) {
         "ноября",
         "декабря"
     ]
-    return monthNames[date.getMonth()]
+    return monthNames[date.getMonth() - 1]
+    // return "сентября"
 }

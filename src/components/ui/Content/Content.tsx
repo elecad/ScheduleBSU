@@ -11,9 +11,12 @@ const classNames = ClassHelper.bind(styles);
 
 const Content = ({children}: ContentProps) => {
     return (
+
         <div className={classNames("content")}>
             {children}
         </div>
+
+
     );
 };
 
