@@ -11,7 +11,6 @@
 .expansion-title {
     border-radius: 10px;
     padding: 10px;
-    font-size: 16pt;
     transition: 0.2s background-color cubic-bezier(.25, .8, .5, 1), color 0.2s cubic-bezier(.25, .8, .5, 1);
 }
 

@@ -2,11 +2,12 @@
     /*margin: 10px;*/
     display: inline-block;
     margin-left: 400px;
+    margin-right: 100px;
     margin-top: 0;
     transition: 0.2s margin-top, 0.2s margin-left;
     padding: 10px;
     min-height: 100vh;
-    width: calc(100% - 400px);
+    width: calc(100% - 400px - 100px);
 }
 
 

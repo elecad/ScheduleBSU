@@ -1,0 +1,74 @@
+.lesson-header {
+    display: inline-flex;
+    padding: 5px;
+}
+
+.time-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.devider {
+    border: 0 solid rgba(0, 0, 0, .12);
+    border-right-width: thin;
+
+    margin-right: 7px;
+    margin-left: 7px;
+}
+
+.start-time {
+    font-size: 1rem;
+    margin-bottom: 7px;
+}
+
+.number {
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+.end-time {
+    font-size: 1rem;
+    margin-top: 7px;
+}
+
+.chips {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 7px;
+
+}
+
+.chip {
+    background-color: #e3ecf7;
+    color: #0059b9;
+    padding: 5px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    /*box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12) !important*/
+}
+
+.discipline {
+    /*font-weight: 100;*/
+    font-size: 1.1rem;
+    margin-bottom: 7px;
+}
+
+.characteristics {
+    font-size: 0.9rem;
+    font-weight: 100;
+}
+
+.characteristic {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.characteristic-icon {
+    margin-right: 5px;
+}
+
+
