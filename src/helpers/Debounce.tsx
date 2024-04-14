@@ -1,9 +1,10 @@
-export const debounce = (func, delay) => {
-    let inDebounce;
-    return function () {
-        const context = this;
-        const args = arguments;
-        clearTimeout(inDebounce);
-        inDebounce = setTimeout(() => func.apply(context, args), delay);
+export const debounce = (mainFunction, delay) => {
+    let timer: number
+    return function (...args) {
+        console.log(timer)
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            mainFunction(...args);
+        }, delay) as unknown as number;
     };
 };

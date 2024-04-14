@@ -41,12 +41,12 @@ const LessonContent = ({lesson}: LessonContentProps) => {
             </div>
             <div className={classNames("lesson-content-wrapper")}>
                 <div className={classNames("to-schedules")}>
-                    {characteristic.map((el) => <Button icon={sсheduleIcons[el.type]}></Button>)}
+                    {characteristic.map((el) => <Button icon={sсheduleIcons[el.type]} key={el.id}></Button>)}
                 </div>
 
                 <div className={classNames("links")}>
                     {links.map((el) =>
-                        <Button className={'link'}>{el.name}</Button>)}
+                        <Button className={'link'} key={el.href}>{el.name}</Button>)}
                 </div>
             </div>
 

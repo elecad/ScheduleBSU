@@ -18,7 +18,7 @@ const WeekPanel = ({children, days}: WeekPanelProps) => {
             <div className={classNames("week-panel")}>
                 {days.map((el) =>
 
-                    <div className={classNames("signboard", "outer")}>
+                    <div className={classNames("signboard", "outer")} key={el.name}>
                         <div className={classNames("signboard", "front", "inner", "anim")}>
                             <div className={classNames("top-main", "anim")}>
                                 <span>{getShortWeekDayName(el.date)}</span>

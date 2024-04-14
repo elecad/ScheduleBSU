@@ -1,13 +1,14 @@
 import styles from './Autocomplite.module.css'
-import {ButtonHTMLAttributes, FormEvent, useEffect, FocusEvent} from "react";
+import {ButtonHTMLAttributes, FormEvent, useEffect, FocusEvent, useState, useCallback} from "react";
 import ClassHelper from "classnames/bind";
 import {SearchResult, useSearch} from "@/hooks/useSearch.ts";
 import {CSSTransition} from "react-transition-group";
 import './Transition.css'
+import {debounce} from "@/helpers/Debounce.tsx";
+
+const DELAY = 300;
 
 interface AutocompliteProps extends ButtonHTMLAttributes<HTMLDivElement> {
-    searchPlaceholder: string,
-
 }
 
 const classNames = ClassHelper.bind(styles);
@@ -20,38 +21,34 @@ const typeIcons = {
     nf: "search_off" // Ничего не найдено
 }
 
-function Autocomplite({searchPlaceholder}: AutocompliteProps) {
+let controller = new AbortController();
 
-    const {
-        getResult,
-        searchResult,
-        isSearchLoading,
-        query,
-        setQuery,
-        isVariantVisible,
-        setIsVariantVisible
-    } = useSearch()
+function Autocomplite(props: AutocompliteProps) {
+    const {searchList, fetchSearch, isSearchLoading} = useSearch()
+    const [isListVisible, setIsListVisible] = useState(false)
+    const [query, setQuery] = useState("")
 
-
-    function inputHandler(event: FormEvent<HTMLInputElement>) {
+    const inputHandler = useCallback((event: FormEvent<HTMLInputElement>) => {
         const inputElement = event.target as HTMLInputElement
         const text = inputElement.value
         setQuery(text)
+    }, [])
 
-    }
+    const debounceFetchSearch = useCallback(debounce(fetchSearch, DELAY), [])
+
 
     useEffect(() => {
         if (query) {
-            getResult()
+            controller.abort();
+            controller = new AbortController()
+            debounceFetchSearch(query, controller.signal)
         }
     }, [query])
 
-    function focusHandler(event: FocusEvent<HTMLInputElement>) {
-        setIsVariantVisible(true)
-    }
 
-    function blurHandler(event: FocusEvent<HTMLInputElement>) {
-        setIsVariantVisible(false)
+    function changeListVisible(event: FocusEvent<HTMLInputElement>) {
+        const newValue = event.type == "focus"
+        setIsListVisible(newValue)
     }
 
     function goToNewSchedule(newSchedule: SearchResult) {
@@ -62,8 +59,8 @@ function Autocomplite({searchPlaceholder}: AutocompliteProps) {
     return (
         <div className={classNames("autocomplite")}>
             <div className={classNames("input-container")}>
-                <input placeholder={searchPlaceholder} autoComplete="none" onInput={inputHandler} onFocus={focusHandler}
-                       onBlur={blurHandler}
+                <input placeholder="Поиск..." autoComplete="none" onInput={inputHandler} onFocus={changeListVisible}
+                       onBlur={changeListVisible}
                        value={query}/>
                 {
                     isSearchLoading
@@ -73,17 +70,18 @@ function Autocomplite({searchPlaceholder}: AutocompliteProps) {
                 }
             </div>
 
-            <CSSTransition classNames={"autocomplete-variants"} in={isVariantVisible} timeout={200} unmountOnExit
+            <CSSTransition classNames={"autocomplete-variants"} in={isListVisible} timeout={200} unmountOnExit
                            mountOnEnter>
                 <div className={classNames("autocomplete-variants")}>
                     {/*Подсказки*/}
-                    {searchResult.map((el) =>
-                        <div onClick={() => goToNewSchedule(el)}
+                    {searchList.map((el) =>
+                        <div onClick={() => goToNewSchedule(el)} key={el.id}
                              className={classNames("autocomplete-variant", {"clickable-variant": el.id})}>
-                        <span
-                            className={classNames("material-icons-outlined", "variant-icon")}>{typeIcons[el.type]}</span>
+                            <span
+                                className={classNames("material-icons-outlined", "variant-icon")}>{typeIcons[el.type]}</span>
                             <div>{el.name}</div>
-                        </div>)}
+                        </div>
+                    )}
 
                 </div>
             </CSSTransition>
