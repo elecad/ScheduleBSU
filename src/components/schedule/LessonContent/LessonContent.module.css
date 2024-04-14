@@ -27,15 +27,16 @@
 .to-schedules {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 10px;
-    flex-wrap: wrap;
 }
 
 .links {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     gap: 10px;
     flex-wrap: wrap;
 }
+
+

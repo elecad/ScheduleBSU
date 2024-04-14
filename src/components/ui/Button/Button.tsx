@@ -9,10 +9,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 
-function Button({children, icon = "", iconPosition = "left", iconType = "round", ...props}: ButtonProps) {
-
+function Button({children, icon = "", iconPosition = "left", iconType = "round", className, ...props}: ButtonProps) {
+    
     return (
-        <button className={styles.btn} {...props}>
+        <button className={`${className} ${styles.btn}`} {...props}>
             {icon && iconPosition == "left" &&
                 <span className={classNames(`material-icons-${iconType}`)}>{icon}</span>}
             {children}

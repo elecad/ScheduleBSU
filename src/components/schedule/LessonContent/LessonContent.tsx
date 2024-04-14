@@ -1,6 +1,5 @@
 import styles from "./LessonContent.module.css"
 import ClassHelper from 'classnames/bind';
-import {ReactNode} from "react";
 import {ILesson} from "@/hooks/useShedule.ts";
 import Button from "@/components/ui/Button/Button.tsx";
 
@@ -18,7 +17,7 @@ const descriptionIcons = {
     group: "groups"
 }
 
-const sheduleIcons = {
+const sсheduleIcons = {
     teacher: "person",
     location: "location_on",
     group: "groups"
@@ -42,12 +41,12 @@ const LessonContent = ({lesson}: LessonContentProps) => {
             </div>
             <div className={classNames("lesson-content-wrapper")}>
                 <div className={classNames("to-schedules")}>
-                    {characteristic.map((el) => <Button icon={sheduleIcons[el.type]}></Button>)}
+                    {characteristic.map((el) => <Button icon={sсheduleIcons[el.type]}></Button>)}
                 </div>
 
                 <div className={classNames("links")}>
                     {links.map((el) =>
-                        <Button>{el.name}</Button>)}
+                        <Button className={'link'}>{el.name}</Button>)}
                 </div>
             </div>
 

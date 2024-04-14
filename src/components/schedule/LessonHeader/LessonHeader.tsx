@@ -1,6 +1,5 @@
 import styles from "./LessonHeader.module.css"
 import ClassHelper from 'classnames/bind';
-import {ReactNode} from "react";
 import {ILesson} from "@/hooks/useShedule.ts";
 import {getTimeLocale} from "@/helpers/DateHelper.tsx";
 

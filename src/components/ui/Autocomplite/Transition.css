@@ -1,0 +1,21 @@
+.autocomplete-variants-enter {
+    opacity: 0;
+}
+
+.autocomplete-variants-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+
+.autocomplete-variants-exit {
+    opacity: 1;
+}
+
+.autocomplete-variants-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+.autocomplete-variants-exit-done {
+    opacity: 0;
+}
