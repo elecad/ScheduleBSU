@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const MILLISECOND_IN_DAY = 86400000
+export const MILLISECOND_IN_DAY = 86400000
 
 interface fetchLesson {
     "pairnumber": number,
@@ -70,8 +70,8 @@ export interface ILink {
 
 export function useSchedule() {
     const group = 12002331
-    const from = '2024-03-25'
-    const to = '2024-03-31'
+    const from = '2024-04-15'
+    const to = '2024-04-21'
     const URL = `https://beluni.ru/schedule/g/${group}?from=${from}&to=${to}&qdist=1`
     const now = new Date()
     const date = new Date(now.getTime() + 0 * MILLISECOND_IN_DAY)

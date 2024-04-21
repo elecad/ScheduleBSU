@@ -1,0 +1,38 @@
+.chip {
+    background-color: #e0e0e0;
+    color: black;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.blue {
+    background-color: #227bd4;
+    color: white;
+}
+
+.green {
+    background-color: #409244;
+    color: white;
+}
+
+.indigo {
+    background-color: #4758b8;
+    color: white;
+}
+
+.purple {
+    background-color: #70249e;
+    color: white;
+}
+
+.red {
+    background-color: #d53737;
+    color: white;
+}
+
+.dark-green {
+    background-color: #0a7e71;
+    color: white;
+}

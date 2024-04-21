@@ -2,6 +2,7 @@ import styles from "./LessonContent.module.css"
 import ClassHelper from 'classnames/bind';
 import {ILesson} from "@/hooks/useShedule.ts";
 import Button from "@/components/ui/Button/Button.tsx";
+import RoundButton from "@/components/ui/RoundButton/RoundButton.tsx";
 
 interface LessonContentProps {
     lesson: ILesson;
@@ -41,7 +42,8 @@ const LessonContent = ({lesson}: LessonContentProps) => {
             </div>
             <div className={classNames("lesson-content-wrapper")}>
                 <div className={classNames("to-schedules")}>
-                    {characteristic.map((el) => <Button icon={sсheduleIcons[el.type]} key={el.id}></Button>)}
+                    {characteristic.map((el) => <Button icon={sсheduleIcons[el.type]} key={el.id} round
+                                                        size={"small"} hint={"Расписание преподавателя"}></Button>)}
                 </div>
 
                 <div className={classNames("links")}>

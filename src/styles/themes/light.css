@@ -9,4 +9,21 @@
     --expansion-panel-background-color-hover: #f6f6f6;
 
     --week-day-panel-background-color: white;
+
+    --search-backgrond-color: #ffffff;
+    --search-icon-color: #757575;
+    --search-placeholder-color: #cbcbcb;
+    --search-variants-background-color: #ffffff;
+    --search-variant-background-color-hover: #e0ebfb;
+    --search-variant-color-hover: #0c63e4;
+    --search-variant-icon-color-hover: #0c63e4;
+
+    --not-lesson-background-color: white;
+    --not-lesson-text-color: black;
+
+    --scrollbar-background-color: #f9f9fd;
+    --scrollbar-thumb-backround-color: #9a9a9a;
+    --scrollbar-track-backround-color: #edeef0;
+
+    --divider-border-color: 0 solid rgba(0, 0, 0, .12);
 }

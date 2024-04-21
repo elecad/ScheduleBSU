@@ -3,7 +3,9 @@
     display: flex;
     align-items: center;
 
-    background-color: white;
+    background-color: var(--search-backgrond-color);
+
+
     height: 40px;
     border-radius: 5px;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
@@ -24,6 +26,7 @@ input {
     background: transparent;
     padding-left: 40px;
     font-weight: 600;
+    color: var(--primary-text-color);
 }
 
 input:focus {
@@ -38,7 +41,6 @@ input::placeholder {
 .search-icon {
     color: #757575;
     position: absolute;
-    transition: 0.1s color ease-in-out;
     margin-left: 8px;
 }
 
@@ -75,7 +77,6 @@ input:focus + .search-icon {
 /*Подсказка*/
 .autocomplete-variants {
     position: absolute;
-    background-color: white;
     width: calc(100% - 20px);
     border-radius: 5px;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14);
@@ -85,18 +86,8 @@ input:focus + .search-icon {
     max-height: 300px;
     overflow-y: auto;
 
-    /*opacity: 0;*/
+    background-color: var(--search-variants-background-color);
     z-index: 99;
-
-    /*visibility: hidden;*/
-    /*transition: opacity 0.2s;*/
-
-}
-
-
-.variants-visible {
-    opacity: 1;
-    visibility: visible;
 }
 
 
@@ -112,26 +103,24 @@ input:focus + .search-icon {
 
 }
 
-/*.autocomplete-variant:hover {*/
-/*    cursor: pointer;*/
-/*    background-color: #e0ebfb;*/
-/*    color: #0c63e4;*/
-/*}*/
+.clickable-variant {
+    transition: color 0.1s;
+}
 
 .clickable-variant:hover {
     cursor: pointer;
-    background-color: #e0ebfb;
-    color: #0c63e4;
+    background-color: var(--search-variant-background-color-hover);
+    color: var(--search-variant-color-hover);
 }
 
 .variant-icon {
     margin-right: 8px;
     margin-left: 8px;
     color: #757575;
-    transition: 0.2s color ease-in-out;
+    transition: 0.1s color ease-in-out;
 }
 
 .autocomplete-variants:hover > .clickable-variant:hover > .variant-icon {
-    color: #0c63e4;
+    color: var(--search-variant-icon-color-hover);
 }
 

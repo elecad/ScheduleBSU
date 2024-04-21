@@ -14,8 +14,9 @@
     vertical-align: bottom;
     text-align: center;
     overflow: hidden;
-    position: relative;
     justify-content: center;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+
 
 }
 
@@ -31,3 +32,23 @@
     border-color: #838383;
 }
 
+.btn.round {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.btn.round {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+}
+
+.btn.round > span {
+    font-size: 1.7rem;
+}
+
+.btn.round.small {
+    width: 45px;
+    height: 45px;
+}

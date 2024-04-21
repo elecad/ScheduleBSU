@@ -18,8 +18,10 @@ const WeekPanel = ({children, days}: WeekPanelProps) => {
             <div className={classNames("week-panel")}>
                 {days.map((el) =>
 
-                    <div className={classNames("signboard", "outer")} key={el.name}>
-                        <div className={classNames("signboard", "front", "inner", "anim")}>
+                    <div className={classNames("signboard", "outer")}
+                         key={el.name}>
+                        <div
+                            className={classNames("signboard", "front", "inner", "anim", {"front-disable": !el.lesson.length})}>
                             <div className={classNames("top-main", "anim")}>
                                 <span>{getShortWeekDayName(el.date)}</span>
                             </div>
@@ -33,7 +35,8 @@ const WeekPanel = ({children, days}: WeekPanelProps) => {
                                 <span>{getMonthName(el.date)}</span>
                             </div>
                         </div>
-                        <div className={classNames("signboard", "left", "inner", "anim")}>
+                        <div
+                            className={classNames("signboard", "left", "inner", "anim")}>
                             <span className={classNames("after-main", "anim")}>{el.lesson.length}</span>
                             <span className={classNames("bottom-main", "inner-bottom", "anim")}>пар</span>
                         </div>

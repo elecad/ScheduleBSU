@@ -4,9 +4,9 @@
     top: 0;
     width: var(--week-day-width);
     height: 100vh;
-
     display: flex;
     align-items: center;
+    transition: 0.2s transform;
 }
 
 .week-panel {
@@ -178,4 +178,16 @@
     color: #3498DB;
     /*font-weight: 600;*/
     /*font-size: 11pt;*/
+}
+
+/*Изменение цвета*/
+.front.front-disable {
+    /*background-color: gray;*/
+}
+
+
+@media (max-width: 960px) {
+    .week-panel-wrapper {
+        transform: translateX(110%);
+    }
 }

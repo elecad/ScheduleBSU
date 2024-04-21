@@ -17,7 +17,6 @@ const SearchLabels: Labels = {
     notFound: [{id: "", name: "Ничего не найдено", type: "nf"}],
     errorQuery: [{id: "", name: "Произошла ошибка...", type: "nf"}]
 }
-let controller = new AbortController();
 
 export function useSearch() {
 
@@ -36,7 +35,7 @@ export function useSearch() {
         try {
             setIsSearchLoading(true)
 
-            const response = await fetch(URL, {signal: signal});
+            const response = await fetch(URL, {signal});
             const list = await response.json() as Search[]
             if (!list.length) {
                 setSearchList(SearchLabels.notFound);
@@ -45,45 +44,15 @@ export function useSearch() {
             }
             setSearchList(list);
             setIsSearchLoading(false)
-        } catch {
-            setSearchList(SearchLabels.errorQuery);
+        } catch (e) {
+            if (e.name == "AbortError")
+                setSearchList([])
+            else
+                setSearchList(SearchLabels.errorQuery);
             setIsSearchLoading(false)
         }
 
     }
 
     return {searchList, isSearchLoading, fetchSearch}
-
-    // const [searchResult, setSearchResult] = useState<SearchResult[]>([{
-    //     id: "",
-    //     name: "Для поиска нужно более 3 символов...",
-    //     type: "q"
-    // }])
-    // const [isSearchLoading, setIsSearchLoading] = useState(false)
-    //
-    // const [query, setQuery] = useState("")
-    // const [isVariantVisible, setIsVariantVisible] = useState(false)
-    //
-    //
-    // async function getResult() {
-    //     if (query.trim().length < 4) {
-    //         setSearchResult([{id: "", name: "Для поиска нужно более 3 символов...", type: "q"}]);
-    //         setIsSearchLoading(false)
-    //         return
-    //     }
-    //     const URL = `https://beluni.ru/schedule/search?q=${query}`
-    //     setIsSearchLoading(true)
-    //     const response = await fetch(URL); // завершается с заголовками ответа
-    //     const data = await response.json() as SearchResult[]
-    //     if (!data.length) {
-    //         setSearchResult([{id: "", name: "Ничего не найдено", type: "nf"}]);
-    //         setIsSearchLoading(false)
-    //         return
-    //     }
-    //     setSearchResult(data);
-    //     setIsSearchLoading(false)
-    // }
-    //
-    //
-    // return {searchResult, getResult, isSearchLoading, query, setQuery, isVariantVisible, setIsVariantVisible}
 }

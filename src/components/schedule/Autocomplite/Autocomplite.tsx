@@ -1,16 +1,12 @@
 import styles from './Autocomplite.module.css'
-import {ButtonHTMLAttributes, FormEvent, useEffect, FocusEvent, useState, useCallback} from "react";
+import {FormEvent, useEffect, FocusEvent, useState, useCallback} from "react";
 import ClassHelper from "classnames/bind";
-import {SearchResult, useSearch} from "@/hooks/useSearch.ts";
+import {Search, useSearch} from "@/hooks/useSearch.ts";
 import {CSSTransition} from "react-transition-group";
 import './Transition.css'
 import {debounce} from "@/helpers/Debounce.tsx";
 
 const DELAY = 300;
-
-interface AutocompliteProps extends ButtonHTMLAttributes<HTMLDivElement> {
-}
-
 const classNames = ClassHelper.bind(styles);
 
 const typeIcons = {
@@ -23,7 +19,7 @@ const typeIcons = {
 
 let controller = new AbortController();
 
-function Autocomplite(props: AutocompliteProps) {
+function Autocomplite() {
     const {searchList, fetchSearch, isSearchLoading} = useSearch()
     const [isListVisible, setIsListVisible] = useState(false)
     const [query, setQuery] = useState("")
@@ -51,7 +47,7 @@ function Autocomplite(props: AutocompliteProps) {
         setIsListVisible(newValue)
     }
 
-    function goToNewSchedule(newSchedule: SearchResult) {
+    function goToNewSchedule(newSchedule: Search) {
         console.log(`Переход к ${JSON.stringify(newSchedule)}`)
     }
 

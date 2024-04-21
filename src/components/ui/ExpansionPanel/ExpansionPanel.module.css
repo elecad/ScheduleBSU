@@ -4,14 +4,16 @@
     border-radius: 10px;
     font-size: 14pt;
     font-weight: 600;
-    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    border: 3px solid var(--expansion-panel-background-color);
 }
 
 
 .expansion-title {
-    border-radius: 10px;
+    border-radius: 7px;
     padding: 10px;
     transition: 0.2s background-color cubic-bezier(.25, .8, .5, 1), color 0.2s cubic-bezier(.25, .8, .5, 1);
+
 }
 
 .expansion-title:hover {
@@ -35,5 +37,18 @@
 
 .expansion-title.open {
     background-color: var(--expansion-panel-background-color-open);
-    color: var(--expansion-panel-font-color-open);
+    color: var(--expansion-panel-font-color-open) !important;
 }
+
+.today {
+    border: 3px solid rgba(63, 81, 181, 0.3);
+}
+
+.now {
+    border: 3px solid #3f51b5;
+}
+
+
+
+
+

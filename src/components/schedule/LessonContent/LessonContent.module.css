@@ -10,8 +10,9 @@
 
 .descriptions {
     font-size: 0.9rem;
-    font-weight: 100;
+    font-weight: 400;
     margin-bottom: 20px;
+
 }
 
 .description {
@@ -22,6 +23,8 @@
 
 .description-icon {
     margin-right: 5px;
+    color: #717171;
+
 }
 
 .to-schedules {

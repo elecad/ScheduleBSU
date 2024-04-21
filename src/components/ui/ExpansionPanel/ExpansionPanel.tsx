@@ -13,10 +13,10 @@ interface ExpansionPanelProps extends HTMLAttributes<HTMLDivElement> {
 const classNames = ClassHelper.bind(styles);
 
 
-const ExpansionPanel = ({contentPanel, headerPanel, open, onOpen, ...props}: ExpansionPanelProps) => {
+const ExpansionPanel = ({contentPanel, headerPanel, className, open, onOpen, ...props}: ExpansionPanelProps) => {
 
     return (
-        <div className={classNames('expansion-panel')} {...props}>
+        <div className={classNames(className, 'expansion-panel')} {...props}>
             <div className={classNames('expansion-title', {'open': open})} onClick={onOpen}>{headerPanel}</div>
             <div className={classNames('expansion-content', {'open': open})}>
                 <div className={classNames('expansion-panel-content-wrapper')}>
