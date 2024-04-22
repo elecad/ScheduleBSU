@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {dateToISO} from "@/helpers/DateHelper.tsx";
 
 export const MILLISECOND_IN_DAY = 86400000
 
@@ -69,27 +70,27 @@ export interface ILink {
 }
 
 export function useSchedule() {
-    const group = 12002331
-    const from = '2024-04-15'
-    const to = '2024-04-21'
-    const URL = `https://beluni.ru/schedule/g/${group}?from=${from}&to=${to}&qdist=1`
     const now = new Date()
-    const date = new Date(now.getTime() + 0 * MILLISECOND_IN_DAY)
+    const [date, setDate] = useState(new Date(now.getTime() + 0 * MILLISECOND_IN_DAY))
+
     const [lesson, setLesson] = useState<IDay[]>([])
-    // console.log('Текущее', date)
     const monday = new Date(date.getTime() - MILLISECOND_IN_DAY * (date.getDay() - 1))
     if (!date.getDay()) {
         monday.setTime(monday.getTime() - 7 * MILLISECOND_IN_DAY)
     }
     const sunday = new Date(monday.getTime() + 6 * MILLISECOND_IN_DAY);
-    // console.log(date.toLocaleDateString())
-    console.log(monday.toLocaleDateString(), sunday.toLocaleDateString())
-    // console.log('Понедельник', monday)
-    // console.log('Воскресенье', sunday)
+
+    console.log()
+
+    const group = 12002331
+    const from = dateToISO(monday)
+    const to = dateToISO(sunday)
+    const URL = `https://beluni.ru/schedule/g/${group}?from=${from}&to=${to}&qdist=1`
+
+
     async function getLesson() {
         const response = await fetch(URL); // завершается с заголовками ответа
         const data = await response.json()
-        console.log("From server: ", data)
         transform(data)
 
     }
@@ -155,12 +156,33 @@ export function useSchedule() {
         if (result[6] && !result[0].lesson.length) {
             result.pop()
         }
-        console.log("Transform: ", result)
         setLesson(result);
 
     }
 
-    return {lesson, getLesson}
+    function findUpdateTime() {
+        console.log("[!] Текущая дата", date.toLocaleDateString(), date.toLocaleTimeString())
+        setDate(new Date())
+        let wait = MILLISECOND_IN_DAY * 3;
+        for (const s of lesson) {
+            for (const l of s.lesson) {
+                const deltaStart = l.start.getTime() - date.getTime();
+                const deltaEnd = l.end.getTime() - date.getTime();
+                // console.log(wait, deltaStart, deltaEnd)
+                if (deltaStart > 0 && wait > deltaStart)
+                    wait = deltaStart
+                if (deltaEnd > 0 && wait > deltaEnd)
+                    wait = deltaEnd
+            }
+        }
+        if (wait <= MILLISECOND_IN_DAY) {
+            const newDate = new Date(+date + wait)
+            console.log("[!] Следующее обновление:", newDate.toLocaleDateString(), newDate.toLocaleTimeString())
+            setTimeout(findUpdateTime, wait)
+        }
+    }
+
+    return {lesson, getLesson, findUpdateTime, date}
 
 
 }

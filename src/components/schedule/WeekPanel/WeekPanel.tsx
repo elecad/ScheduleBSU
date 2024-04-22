@@ -12,14 +12,13 @@ interface WeekPanelProps extends HTMLAttributes<HTMLDivElement> {
 const classNames = ClassHelper.bind(styles);
 
 
-const WeekPanel = ({children, days}: WeekPanelProps) => {
+const WeekPanel = ({days}: WeekPanelProps) => {
     return (
         <div className={classNames("week-panel-wrapper")}>
             <div className={classNames("week-panel")}>
                 {days.map((el) =>
-
                     <div className={classNames("signboard", "outer")}
-                         key={el.name}>
+                         key={+el.date}>
                         <div
                             className={classNames("signboard", "front", "inner", "anim", {"front-disable": !el.lesson.length})}>
                             <div className={classNames("top-main", "anim")}>

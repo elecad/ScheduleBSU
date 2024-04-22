@@ -58,15 +58,16 @@
     margin-bottom: 20px;
 }
 
-.not-lesson {
-    background-color: var(--not-lesson-background-color);
-    padding: 10px 20px;
-    border-radius: 7px;
-    font-weight: 500;
-    color: var(--not-lesson-text-color);
-    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
-    font-size: 1rem;
-}
+/*.not-lesson {*/
+/*    background-color: var(--not-lesson-background-color);*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 7px;*/
+/*    font-weight: 500;*/
+/*    color: var(--not-lesson-text-color);*/
+/*    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);*/
+/*    font-size: 1rem;*/
+/*}*/
+
 
 .link {
     text-transform: uppercase;
@@ -74,12 +75,6 @@
     letter-spacing: 0.08rem;
 }
 
-.devider {
-    border: var(--divider-border-color);
-    border-top-width: thin;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
 
 

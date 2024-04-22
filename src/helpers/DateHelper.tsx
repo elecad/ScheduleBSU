@@ -32,3 +32,7 @@ export function getMonthName(date: Date) {
     return monthNames[date.getMonth() - 1]
     // return "сентября"
 }
+
+export function dateToISO(date: Date) {
+    return date.toISOString().slice(0, 10)
+}

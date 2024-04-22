@@ -52,3 +52,14 @@
     width: 45px;
     height: 45px;
 }
+
+.btn.transparent {
+    background-color: transparent;
+    color: var(--primary-text-color);
+    box-shadow: none;
+    border: none;
+}
+
+.btn.transparent:hover {
+    background-color: var(--tranparent-button-background-color);
+}

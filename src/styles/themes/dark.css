@@ -19,11 +19,13 @@
     --search-variant-icon-color-hover: white;
 
     --not-lesson-background-color: #1e1e1e;
-    --not-lesson-text-color: white;
+    --not-lesson-text-color: rgba(255, 255, 255, 0.7);
 
     --scrollbar-background-color: #121212;
     --scrollbar-thumb-backround-color: #757575;
     --scrollbar-track-backround-color: #121212;
 
     --divider-border-color: 0 solid hsla(0, 0%, 100%, .12);
+
+    --tranparent-button-background-color: rgba(255, 255, 255, 0.1)
 }

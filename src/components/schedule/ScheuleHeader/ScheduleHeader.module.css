@@ -1,0 +1,17 @@
+.schedule-header {
+    margin-bottom: 20px;
+}
+
+.schedule-header-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.separator {
+    border: var(--divider-border-color);
+    border-top-width: thin;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

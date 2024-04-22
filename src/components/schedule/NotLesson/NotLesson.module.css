@@ -1,0 +1,20 @@
+.not-lesson-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.not-lesson {
+    font-weight: 500;
+    color: var(--not-lesson-text-color);
+    font-size: 1.2rem;
+}
+
+.not-lesson-icons {
+    font-size: 2rem;
+    color: var(--not-lesson-text-color);
+}

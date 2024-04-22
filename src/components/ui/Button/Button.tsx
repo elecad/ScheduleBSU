@@ -7,8 +7,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     iconType?: "two-tone" | "outlined" | "round" | "sharp"
     iconPosition?: "left" | "right",
     round?: boolean,
+    variant?: "default" | "transparent",
     size?: "small" | "normal",
-    hint?: string
 }
 
 
@@ -22,13 +22,17 @@ function Button({
                     className,
                     round = false,
                     size = "normal",
-                    hint,
+                    variant = "default",
                     ...props
                 }: ButtonProps) {
     return (
 
         <button
-            className={classNames(className, styles.btn, {[styles.round]: round}, {[styles.small]: size == "small"})} {...props}>
+            className={classNames(className,
+                styles.btn,
+                {[styles.round]: round},
+                {[styles.small]: size == "small"},
+                {[variant]: variant == "transparent"})} {...props}>
             {icon && iconPosition == "left" &&
                 <span
                     className={classNames(`material-icons-${iconType}`)}>{icon}</span>}
