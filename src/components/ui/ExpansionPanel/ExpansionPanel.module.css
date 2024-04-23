@@ -40,13 +40,6 @@
     color: var(--expansion-panel-font-color-open) !important;
 }
 
-.today {
-    border: 3px solid rgba(63, 81, 181, 0.3);
-}
-
-.now {
-    border: 3px solid #3f51b5;
-}
 
 
 

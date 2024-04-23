@@ -13,7 +13,6 @@ const classNames = ClassHelper.bind(styles);
 
 
 function DayHeader({dayName, dayDate, isToday}: DayHeaderProps) {
-    console.log(isToday)
     return (
         <Card
             className={classNames("day-header")}>
