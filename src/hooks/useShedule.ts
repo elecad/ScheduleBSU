@@ -51,6 +51,7 @@ export interface ILesson {
     characteristic: ICharacteristic[]
     description: IDescription[]
     links: ILink[]
+    isSubLesson: boolean
 }
 
 export interface ICharacteristic {
@@ -73,7 +74,7 @@ export function useSchedule() {
     const now = new Date()
     const [date, setDate] = useState(new Date(now.getTime() + 0 * MILLISECOND_IN_DAY))
 
-    const [lesson, setLesson] = useState<IDay[]>([])
+    const [schedule, setSchedule] = useState<IDay[]>([])
     const monday = new Date(date.getTime() - MILLISECOND_IN_DAY * (date.getDay() - 1))
     if (!date.getDay()) {
         monday.setTime(monday.getTime() - 7 * MILLISECOND_IN_DAY)
@@ -113,6 +114,7 @@ export function useSchedule() {
         }
 
 
+        let prevPair = 0;
         for (const l of lessons) {
             const startDate = new Date(l.timestart * 1000)
             const endDate = new Date(l.timeend * 1000)
@@ -120,6 +122,7 @@ export function useSchedule() {
             if (dayWeekPosition < 0) {
                 dayWeekPosition = 6
             }
+
 
             const ch: ICharacteristic[] = []
             const de: IDescription[] = []
@@ -150,13 +153,15 @@ export function useSchedule() {
                 type: l.edworkkind,
                 characteristic: ch,
                 links: l.links,
-                description: de
+                description: de,
+                isSubLesson: !!prevPair && prevPair == l.pairnumber
             })
+            prevPair = l.pairnumber;
         }
         if (result[6] && !result[0].lesson.length) {
             result.pop()
         }
-        setLesson(result);
+        setSchedule(result);
 
     }
 
@@ -164,11 +169,10 @@ export function useSchedule() {
         console.log("[!] Текущая дата", date.toLocaleDateString(), date.toLocaleTimeString())
         setDate(new Date())
         let wait = MILLISECOND_IN_DAY * 3;
-        for (const s of lesson) {
+        for (const s of schedule) {
             for (const l of s.lesson) {
                 const deltaStart = l.start.getTime() - date.getTime();
                 const deltaEnd = l.end.getTime() - date.getTime();
-                // console.log(wait, deltaStart, deltaEnd)
                 if (deltaStart > 0 && wait > deltaStart)
                     wait = deltaStart
                 if (deltaEnd > 0 && wait > deltaEnd)
@@ -182,7 +186,7 @@ export function useSchedule() {
         }
     }
 
-    return {lesson, getLesson, findUpdateTime, date}
+    return {schedule, getLesson, findUpdateTime, date}
 
 
 }
