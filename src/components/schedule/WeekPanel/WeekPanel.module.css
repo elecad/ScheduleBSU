@@ -32,6 +32,7 @@
     position: relative;
     z-index: 1;
     cursor: pointer;
+    
 }
 
 /*-----*/
@@ -50,7 +51,6 @@
     top: 0;
     left: 0;
     z-index: 3;
-    /*background: #ff726b;*/
     background-color: #3f51b5;
     text-align: center;
 }
@@ -117,6 +117,10 @@
     font-weight: 600;
 }
 
+.today {
+    text-decoration: underline;
+}
+
 
 /*-----*/
 
@@ -170,8 +174,9 @@
     justify-content: center;
 }
 
-.red {
+.bottom-label {
     color: #3f51b5;
+    /*font-weight: 600;*/
 }
 
 .inner-bottom {
@@ -181,8 +186,30 @@
 }
 
 /*Изменение цвета*/
-.front.front-disable {
-    /*background-color: gray;*/
+.front-disable {
+    background-color: #c7c7c7;
+    color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.back-disable {
+    background-color: #a8a8a8;
+    color: rgba(0, 0, 0, 0.5);
+
+}
+
+.outer:hover .left.back-disable {
+    transform: scale(0.9);
+
+}
+
+.outer:hover .bottom-main.label-off {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.label-disable {
+    color: rgba(0, 0, 0, 0.5);
 }
 
 

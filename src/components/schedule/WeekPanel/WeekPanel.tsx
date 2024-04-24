@@ -5,39 +5,48 @@ import {IDay} from "@/hooks/useShedule.ts";
 import {getMonthName, getShortWeekDayName} from "@/helpers/DateHelper.tsx";
 
 interface WeekPanelProps extends HTMLAttributes<HTMLDivElement> {
-    children?: ReactNode,
+    children?: ReactNode
     days: IDay[]
+    date: Date
 }
 
 const classNames = ClassHelper.bind(styles);
 
 
-const WeekPanel = ({days}: WeekPanelProps) => {
+const WeekPanel = ({days, date}: WeekPanelProps) => {
+
+    function isToday(day: IDay) {
+        return day.date.toLocaleDateString() == date.toLocaleDateString()
+    }
+
     return (
         <div className={classNames("week-panel-wrapper")}>
             <div className={classNames("week-panel")}>
-                {days.map((el) =>
+                {days.map((day) =>
                     <div className={classNames("signboard", "outer")}
-                         key={+el.date}>
+                         key={+day.date}>
                         <div
-                            className={classNames("signboard", "front", "inner", "anim", {"front-disable": !el.lesson.length})}>
-                            <div className={classNames("top-main", "anim")}>
-                                <span>{getShortWeekDayName(el.date)}</span>
+                            className={classNames("signboard", "front", "inner", "anim", {"front-disable": !day.lesson.length})}>
+                            <div className={classNames("top-main", "anim", {"label-disable": !day.lesson.length})}>
+                                <span>{getShortWeekDayName(day.date)}</span>
                             </div>
-                            <div className={classNames("main", "anim")}>
-                                <span>{getShortWeekDayName(el.date)}</span>
+                            <div className={classNames("main", "anim", {"today": isToday(day)})}>
+                                <span>{getShortWeekDayName(day.date)}</span>
                             </div>
                             <div className={classNames("after-main", "anim")}>
-                                <span>{el.date.getDate()}</span>
+                                <span>{day.date.getDate()}</span>
                             </div>
-                            <div className={classNames("bottom-main", "red", "anim")}>
-                                <span>{getMonthName(el.date)}</span>
+                            <div
+                                className={classNames("bottom-main", "bottom-label", "anim", {"label-disable": !day.lesson.length})}>
+                                <span>{getMonthName(day.date)}</span>
                             </div>
                         </div>
                         <div
-                            className={classNames("signboard", "left", "inner", "anim")}>
-                            <span className={classNames("after-main", "anim")}>{el.lesson.length}</span>
-                            <span className={classNames("bottom-main", "inner-bottom", "anim")}>пар</span>
+                            className={classNames("signboard", "left", "inner", "anim", {"back-disable": !day.lesson.length})}>
+
+                            <span className={classNames("after-main", "anim")}>{day.lesson.length}</span>
+                            <span
+                                className={classNames("bottom-main", "inner-bottom", "anim", {"label-off": !day.lesson.length})}>пар</span>
                         </div>
                     </div>
                 )}

@@ -57,7 +57,9 @@ function Autocomplite() {
             <div className={classNames("input-container")}>
                 <input placeholder="Поиск..." autoComplete="none" onInput={inputHandler} onFocus={changeListVisible}
                        onBlur={changeListVisible}
-                       value={query}/>
+                       value={query}
+                       type="text"
+                />
                 {
                     isSearchLoading
                         ? <span className={classNames("loader")}></span>
