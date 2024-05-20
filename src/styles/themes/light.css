@@ -9,6 +9,8 @@
     --expansion-panel-background-color-hover: #f6f6f6;
 
     --week-day-panel-background-color: white;
+    --day-week-disable-label-color: rgba(0, 0, 0, 0.5);
+    --day-week-label-color: #3f51b5;
 
     --search-backgrond-color: #ffffff;
     --search-icon-color: #757575;

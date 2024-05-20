@@ -36,7 +36,8 @@ interface fetchLesson {
 export interface IDay {
     name: string,
     date: Date,
-    lesson: ILesson[]
+    lesson: ILesson[],
+    element?: HTMLDivElement
 }
 
 export interface ILesson {

@@ -9,6 +9,8 @@
     --expansion-panel-background-color-hover: #303030;
 
     --week-day-panel-background-color: #1e1e1e;
+    --day-week-disable-label-color: rgba(255, 255, 255, 0.6);
+    --day-week-label-color: rgb(84, 107, 255);
 
     --search-backgrond-color: #1e1e1e;
     --search-icon-color: white;
@@ -28,4 +30,6 @@
     --divider-border-color: 0 solid hsla(0, 0%, 100%, .12);
 
     --tranparent-button-background-color: rgba(255, 255, 255, 0.1)
+
+
 }

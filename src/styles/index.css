@@ -3,6 +3,7 @@
 @import "@/styles/themes/dark.css";
 @import "@/styles/variables/globals.css";
 @import 'material-icons/iconfont/material-icons.css';
+@import 'react-day-picker/dist/style.css';
 
 
 :root {
@@ -53,6 +54,15 @@
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.08rem;
+}
+
+.rdp {
+    margin: 0;
+    --rdp-cell-size: 50px;
+}
+
+.rdp-caption {
+    text-transform: uppercase;
 }
 
 

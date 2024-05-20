@@ -55,7 +55,10 @@ function LessonList({schedule, date}: LessonListProps) {
 
     return (
         <div className={classNames('lesson-list')}>
-            {schedule.map((day, i) => <div key={+day.date}>
+            {schedule.map((day, i) => <div key={+day.date} ref={(el) => {
+                if (el)
+                    day.element = el
+            }}>
                 <DayHeader
                     isToday={day.date.toLocaleDateString() == date.toLocaleDateString()}
                     dayName={day.name}

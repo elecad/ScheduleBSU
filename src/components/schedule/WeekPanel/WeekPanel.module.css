@@ -21,6 +21,7 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
+    user-select: none;
 }
 
 .anim {
@@ -32,7 +33,7 @@
     position: relative;
     z-index: 1;
     cursor: pointer;
-    
+
 }
 
 /*-----*/
@@ -71,7 +72,7 @@
 
 
 .outer:hover .left {
-    transform: translateX(-55px) scale(0.9);
+    transform: translateX(-43px) scale(0.9);
 
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
 }
@@ -117,6 +118,7 @@
     font-weight: 600;
 }
 
+
 .today {
     text-decoration: underline;
 }
@@ -152,7 +154,8 @@
     text-transform: uppercase;
     opacity: 0;
     visibility: hidden;
-    color: #3f51b5;
+    /*Переменная*/
+    color: var(--day-week-label-color);
 
     display: flex;
     align-items: center;
@@ -175,41 +178,49 @@
 }
 
 .bottom-label {
-    color: #3f51b5;
+    /*Переменная*/
+    color: var(--day-week-label-color);
     /*font-weight: 600;*/
 }
 
 .inner-bottom {
     color: #3498DB;
-    /*font-weight: 600;*/
-    /*font-size: 11pt;*/
 }
 
 /*Изменение цвета*/
 .front-disable {
     background-color: #c7c7c7;
     color: rgba(0, 0, 0, 0.5);
-    pointer-events: none;
+}
+
+/*Изменение цвета*/
+.front-disable {
+    background-color: #c7c7c7;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .back-disable {
     background-color: #a8a8a8;
-    color: rgba(0, 0, 0, 0.5);
+    /*Переменная*/
+    color: var(--day-week-disable-label-color);
+
 
 }
 
 .outer:hover .left.back-disable {
-    transform: scale(0.9);
+    /*transform: translateX(-43px) scale(1);*/
 
 }
 
 .outer:hover .bottom-main.label-off {
-    opacity: 0;
-    visibility: hidden;
+    /*opacity: 0;*/
+    /*visibility: hidden;*/
+    color: var(--day-week-disable-label-color);
 }
 
 .label-disable {
-    color: rgba(0, 0, 0, 0.5);
+    /*Переменная*/
+    color: var(--day-week-disable-label-color);
 }
 
 

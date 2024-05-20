@@ -19,11 +19,32 @@ const WeekPanel = ({days, date}: WeekPanelProps) => {
         return day.date.toLocaleDateString() == date.toLocaleDateString()
     }
 
+    function clickHandler(day: IDay) {
+        const element = day.element;
+        if (element) {
+            const positions = element.getBoundingClientRect()
+            const offset = 5;
+            const top = positions.y + window.scrollY - offset
+            window.scroll({behavior: "smooth", top})
+        }
+    }
+
+    function getPairBottomLabel(num: number) {
+        let label = "пар"
+        if (num == 1)
+            label = "пара"
+        else if (num == 2 || num == 3)
+            label = "пары"
+
+        return label
+
+    }
+
     return (
         <div className={classNames("week-panel-wrapper")}>
             <div className={classNames("week-panel")}>
                 {days.map((day) =>
-                    <div className={classNames("signboard", "outer")}
+                    <div onClick={() => clickHandler(day)} className={classNames("signboard", "outer")}
                          key={+day.date}>
                         <div
                             className={classNames("signboard", "front", "inner", "anim", {"front-disable": !day.lesson.length})}>
@@ -46,7 +67,7 @@ const WeekPanel = ({days, date}: WeekPanelProps) => {
 
                             <span className={classNames("after-main", "anim")}>{day.lesson.length}</span>
                             <span
-                                className={classNames("bottom-main", "inner-bottom", "anim", {"label-off": !day.lesson.length})}>пар</span>
+                                className={classNames("bottom-main", "inner-bottom", "anim", {"label-off": !day.lesson.length})}>{getPairBottomLabel(day.lesson.length)}</span>
                         </div>
                     </div>
                 )}

@@ -1,4 +1,4 @@
-import styles from './DayHaeder.module.css'
+import styles from './DayHeader.module.css'
 import {ButtonHTMLAttributes} from "react";
 import ClassHelper from "classnames/bind";
 import Card from "@/components/ui/Card/Card.tsx";
@@ -19,6 +19,7 @@ function DayHeader({dayName, dayDate, isToday}: DayHeaderProps) {
             {isToday && <div className={classNames("today")}></div>}
             <div className={classNames("name-day")}>{dayName}</div>
             <div className={classNames("date-day")}>{dayDate}</div>
+
         </Card>
     );
 }
