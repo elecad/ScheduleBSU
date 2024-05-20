@@ -153,7 +153,7 @@ export function useSchedule() {
                 isConf: l.withdist,
                 type: l.edworkkind,
                 characteristic: ch,
-                links: l.links.reverse(),
+                links: l.links ? l.links.reverse() : [],
                 description: de,
                 isSubLesson: !!prevPair && prevPair == l.pairnumber
             })
